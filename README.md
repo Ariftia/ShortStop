@@ -32,16 +32,59 @@
 
 ## 🚀 Installation Guide
 
-### For Firefox (Recommended)
-1. Build the extension if not already built:
+### For Firefox
+
+#### Permanent Installation (Without Debug Mode)
+1. Build and package the production `.xpi`:
    ```bash
-   npm run build
-   # or npm run pack to generate shortstop-v0.1.0.zip
+   npm run pack
    ```
-2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
-3. Click **"Load Temporary Add-on..."**.
-4. Select `dist/manifest.json` (or the generated `shortstop-v0.1.0.zip`).
-5. ShortStop is now active! The icon will appear in your toolbar.
+   This generates `shortstop-v0.1.0.xpi` (and `shortstop.xpi`) with all extension files placed strictly at the root of the archive (preventing the "corrupt add-on" error).
+
+2. Choose your permanent installation method:
+
+   - **Method A: Firefox Developer Edition / Nightly / LibreWolf / Zen / Waterfox (Easiest)**:
+     1. Open `about:config` in your browser.
+     2. Search for `xpinstall.signatures.required` and toggle it to `false`.
+     3. Open `about:addons` (or press `Ctrl+Shift+A`).
+     4. Click the gear icon (⚙️) in the top-right corner and select **"Install Add-on From File..."**.
+     5. Select `shortstop-v0.1.0.xpi` (or `shortstop.xpi`).
+     6. Click **Add** to confirm. The extension will stay installed permanently across browser restarts.
+
+   - **Method B: Firefox Enterprise Policy (Linux System-Wide, No Signing Required)**:
+     On Linux, create an enterprise policy to force-load the extension without signature checks:
+     ```bash
+     sudo mkdir -p /etc/firefox/policies
+     sudo tee /etc/firefox/policies/policies.json << 'EOF'
+     {
+       "policies": {
+         "ExtensionSettings": {
+           "shortstop@stop-scrolling.ext": {
+             "installation_mode": "normal_installed",
+             "install_url": "file:///path/to/shortstop-v0.1.0.xpi"
+           }
+         }
+       }
+     }
+     EOF
+     ```
+     *(Replace `/path/to/shortstop-v0.1.0.xpi` with the absolute path to your `.xpi` file, then restart Firefox).*
+
+   - **Method C: Mozilla Self-Signing (Standard Release Firefox)**:
+     Mozilla provides free, automated self-signing for unlisted extensions in seconds:
+     1. Get your free API key & secret from [AMO Developer Hub](https://addons.mozilla.org/developers/addon/api/key/).
+     2. Run:
+        ```bash
+        npx web-ext sign --source-dir=dist --api-key="YOUR_KEY" --api-secret="YOUR_SECRET" --channel=unlisted
+        ```
+     3. Download the signed `.xpi` from `web-ext-artifacts/` and install it permanently via `about:addons` -> **"Install Add-on From File..."**.
+
+#### Temporary Debug Mode
+If you only want to test temporarily during active development:
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **"Load Temporary Add-on..."**.
+3. Select `dist/manifest.json` (or `shortstop-v0.1.0.xpi`).
+*(Note: Temporary add-ons are automatically unloaded when Firefox closes).*
 
 ### For Chrome / Brave / Edge
 1. Navigate to `chrome://extensions`.
