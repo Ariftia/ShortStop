@@ -1,0 +1,30 @@
+{
+  "name": "shortstop",
+  "version": "0.1.0",
+  "description": "Firefox WebExtensions Manifest V3 extension to block short-video doomscrolling with adjustable grace time and focus sessions.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "pack": "npm run build && node scripts/pack.js"
+  },
+  "keywords": [
+    "firefox-addon",
+    "webextension",
+    "short-video-blocker",
+    "shorts",
+    "reels",
+    "tiktok",
+    "focus"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
