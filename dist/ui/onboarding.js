@@ -1,0 +1,1 @@
+"use strict";(()=>{var e=typeof browser<"u"?browser:typeof chrome<"u"?chrome:null,t=document.getElementById("btn-activate"),n=document.getElementById("btn-focus");t.addEventListener("click",()=>{window.close()});n.addEventListener("click",()=>{e&&e.runtime?e.runtime.sendMessage({type:"START_FOCUS_SESSION",durationMinutes:50},()=>{window.close()}):window.close()});})();

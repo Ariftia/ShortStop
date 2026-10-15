@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to ShortStop</title>
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+  <main class="onboarding-card">
+    <div class="logo-wrap">
+      <img src="../icons/icon-48.png" alt="" class="logo">
+    </div>
+
+    <h1 class="title">ShortStop</h1>
+    <p class="tagline">Keep useful browsing. Remove short-video distractions.</p>
+
+    <div class="features-list">
+      <div class="feature-item">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div>
+          <h2 class="feat-title">Targeted Format Blocking</h2>
+          <p class="feat-desc">Hides Shorts, Reels, and doomscrolling feeds while preserving search, long videos, DMs, and text posts.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <h2 class="feat-title">Focus Sessions</h2>
+          <p class="feat-desc">Lock down temptation during deep work blocks. Settings cannot be weakened until the session ends.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        <div>
+          <h2 class="feat-title">Adjustable Grace Time</h2>
+          <p class="feat-desc">Earn a controlled temporary pass (default: 5 min / 3 hrs, max 30 min daily) with a 30s mindful pause.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-activate" class="btn btn-primary btn-block">Activate Protection &amp; Start Browsing</button>
+      <button id="btn-focus" class="btn btn-secondary btn-block">Start 50-Min Focus Session</button>
+    </div>
+  </main>
+
+  <script src="onboarding.js"></script>
+</body>
+</html>
