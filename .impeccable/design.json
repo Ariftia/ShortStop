@@ -62,13 +62,13 @@
         "role": "tertiary",
         "displayName": "Signal Red",
         "canonical": "oklch(62% 0.22 25)",
-        "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fee2e2"]
+        "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fca5a5", "#fee2e2"]
       },
       "status-safe": {
         "role": "secondary",
         "displayName": "Emerald Safe",
         "canonical": "oklch(72% 0.17 145)",
-        "tonalRamp": ["#052e16", "#14532d", "#166534", "#15803d", "#16a34a", "#22c55e", "#4ade80", "#dcfce7"]
+        "tonalRamp": ["#052e16", "#14532d", "#166534", "#15803d", "#16a34a", "#22c55e", "#4ade80", "#86efac", "#dcfce7"]
       }
     },
     "typographyMeta": {
