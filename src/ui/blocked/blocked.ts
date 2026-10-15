@@ -12,8 +12,12 @@ const reasonEl = document.getElementById('block-reason') as HTMLElement;
 const sessionBanner = document.getElementById('session-banner') as HTMLElement;
 const sessionTimerText = document.getElementById('session-timer-text') as HTMLElement;
 const btnBack = document.getElementById('btn-back') as HTMLButtonElement;
-const btnNewTab = document.getElementById('btn-newtab') as HTMLButtonElement;
+const btnProductiveApps = (document.getElementById('btn-productive-apps') || document.getElementById('btn-newtab')) as HTMLButtonElement | null;
 const btnSettings = document.getElementById('btn-settings') as HTMLButtonElement;
+
+const productiveModal = document.getElementById('productive-modal') as HTMLElement | null;
+const btnCloseProductiveModal = document.getElementById('btn-close-productive-modal') as HTMLButtonElement | null;
+const productiveCards = document.querySelectorAll<HTMLElement>('.productive-card');
 
 const graceQuotaSummary = document.getElementById('grace-quota-summary') as HTMLElement;
 const btnRequestGrace = document.getElementById('btn-request-grace') as HTMLButtonElement;
@@ -39,12 +43,52 @@ btnBack.addEventListener('click', () => {
   }
 });
 
-btnNewTab.addEventListener('click', () => {
-  if (api && api.tabs && api.tabs.create) {
-    api.tabs.create({ url: 'about:newtab' });
-  } else {
-    window.open('about:newtab', '_blank');
+if (btnProductiveApps) {
+  btnProductiveApps.addEventListener('click', () => {
+    productiveModal?.classList.remove('hidden');
+  });
+}
+
+if (btnCloseProductiveModal) {
+  btnCloseProductiveModal.addEventListener('click', () => {
+    productiveModal?.classList.add('hidden');
+  });
+}
+
+if (productiveModal) {
+  productiveModal.addEventListener('click', (e) => {
+    if (e.target === productiveModal) {
+      productiveModal.classList.add('hidden');
+    }
+  });
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    productiveModal?.classList.add('hidden');
+    modal.classList.add('hidden');
   }
+});
+
+productiveCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    const targetUrl = card.getAttribute('data-url');
+    if (!targetUrl) return;
+
+    if (targetUrl === 'newtab') {
+      if (api && api.tabs && api.tabs.create) {
+        api.tabs.create({});
+      } else {
+        window.open('about:blank', '_blank');
+      }
+    } else {
+      if (api && api.tabs && api.tabs.update) {
+        api.tabs.update({ url: targetUrl });
+      } else {
+        window.location.href = targetUrl;
+      }
+    }
+  });
 });
 
 btnSettings.addEventListener('click', () => {
