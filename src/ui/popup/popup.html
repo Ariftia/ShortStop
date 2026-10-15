@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortStop</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img src="../icons/icon-32.png" alt="" class="logo">
+        <span class="brand-name">ShortStop</span>
+      </div>
+      <div id="status-badge" class="badge badge-success">
+        <span class="badge-dot"></span>
+        <span id="status-text">Protected</span>
+      </div>
+    </header>
+
+    <!-- Platform pills -->
+    <section class="platforms-bar" aria-label="Protected Platforms">
+      <div id="pill-youtube" class="plat-pill active" title="YouTube Shorts">YouTube</div>
+      <div id="pill-instagram" class="plat-pill active" title="Instagram Reels">Instagram</div>
+      <div id="pill-facebook" class="plat-pill active" title="Facebook Reels">Facebook</div>
+      <div id="pill-tiktok" class="plat-pill active" title="TikTok Entire Site">TikTok</div>
+    </section>
+
+    <!-- Focus Session Section -->
+    <section class="card focus-card">
+      <div class="card-header">
+        <div class="card-title-wrap">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span class="card-title">Focus Session</span>
+        </div>
+        <span id="focus-lock-indicator" class="lock-tag hidden">
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Locked
+        </span>
+      </div>
+
+      <!-- Active timer view -->
+      <div id="focus-active-view" class="focus-active hidden">
+        <div class="timer-display" id="focus-countdown">50:00</div>
+        <p class="focus-note">Protection-weakening settings &amp; grace passes are locked.</p>
+      </div>
+
+      <!-- Setup view -->
+      <div id="focus-setup-view" class="focus-setup">
+        <div class="preset-buttons">
+          <button class="btn-preset active" data-mins="25">25m</button>
+          <button class="btn-preset" data-mins="50">50m</button>
+          <button class="btn-preset" data-mins="90">90m</button>
+        </div>
+        <button id="btn-start-focus" class="btn btn-primary btn-block">
+          Start Focus Session
+        </button>
+      </div>
+    </section>
+
+    <!-- Grace Time Section -->
+    <section class="card grace-card">
+      <div class="card-header">
+        <div class="card-title-wrap">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+          <span class="card-title">Grace Time</span>
+        </div>
+        <span id="grace-usage-badge" class="subtle-badge">0/30m today</span>
+      </div>
+
+      <!-- Active grace timer -->
+      <div id="grace-active-view" class="grace-active hidden">
+        <div class="grace-timer" id="grace-countdown">04:59</div>
+        <p class="grace-note">Short-video feeds temporarily unblocked.</p>
+        <button id="btn-end-grace" class="btn btn-outline-danger btn-sm">End Pass Early</button>
+      </div>
+
+      <!-- Inactive grace view -->
+      <div id="grace-setup-view" class="grace-setup">
+        <p id="grace-status-desc" class="status-desc">5 min available per 3-hour window.</p>
+        <button id="btn-popup-grace" class="btn btn-outline btn-block">
+          Use Grace Pass
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button id="btn-open-settings" class="footer-link">
+        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        Preferences &amp; Quotas
+      </button>
+    </footer>
+
+    <!-- 30-Second Intentional Delay Modal -->
+    <div id="popup-delay-modal" class="modal-backdrop hidden">
+      <div class="modal-dialog">
+        <h3 class="modal-title">Take a Breath</h3>
+        <p class="modal-desc">Waiting 30 seconds to ensure intentional browsing.</p>
+        <div class="countdown-circle">
+          <span id="popup-delay-seconds">30</span>
+        </div>
+        <div class="modal-buttons">
+          <button id="btn-cancel-popup-delay" class="btn btn-secondary btn-sm">Cancel</button>
+          <button id="btn-confirm-popup-grace" class="btn btn-danger btn-sm" disabled>Unlock Pass</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
