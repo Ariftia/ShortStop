@@ -60,24 +60,21 @@ function generatePng(size) {
 
       // Antialiased outer circle / rounded badge
       if (dist <= radius) {
-        // Deep modern dark indigo/slate background: #1E1B4B
-        let r = 30;
-        let g = 27;
-        let b = 75;
+        // Deep pitch black background: #09090B
+        let r = 9;
+        let g = 9;
+        let b = 11;
         let a = 255;
 
         // Inner shield/ring border
         if (dist > radius - (size >= 32 ? 2.5 : 1.2)) {
-          // Vibrant indigo border: #6366F1
-          r = 99;
-          g = 102;
-          b = 241;
+          // Neutral grey border: #3F3F46
+          r = 63;
+          g = 63;
+          b = 70;
         }
 
-        // Inner "Hand / Stop Octagon / Pause Bars"
-        // Let's draw two clean pause/stop vertical bars in white/coral:
-        // Left bar: [cx - 0.22*size, cx - 0.08*size], y in [cy - 0.2*size, cy + 0.2*size]
-        // Right bar: [cx + 0.08*size, cx + 0.22*size], y in [cy - 0.2*size, cy + 0.2*size]
+        // Inner Pause/Stop vertical bars
         const barHalfW = size * 0.07;
         const barHalfH = size * 0.18;
         const barSpacing = size * 0.13;
@@ -85,10 +82,10 @@ function generatePng(size) {
         const inRightBar = Math.abs(dx - barSpacing) <= barHalfW && Math.abs(dy) <= barHalfH;
 
         if (inLeftBar || inRightBar) {
-          // Bright coral/amber accent: #F43F5E
-          r = 244;
-          g = 63;
-          b = 94;
+          // Crisp warning/blocked red: #EF4444
+          r = 239;
+          g = 68;
+          b = 68;
         }
 
         // Smooth antialiased edge
@@ -141,9 +138,9 @@ for (const size of [16, 32, 48, 128]) {
 
 // Generate SVG version as well
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <circle cx="64" cy="64" r="56" fill="#1E1B4B" stroke="#6366F1" stroke-width="4"/>
-  <rect x="42" y="40" width="16" height="48" rx="4" fill="#F43F5E"/>
-  <rect x="70" y="40" width="16" height="48" rx="4" fill="#F43F5E"/>
+  <circle cx="64" cy="64" r="56" fill="#09090B" stroke="#3F3F46" stroke-width="4"/>
+  <rect x="42" y="40" width="16" height="48" rx="4" fill="#EF4444"/>
+  <rect x="70" y="40" width="16" height="48" rx="4" fill="#EF4444"/>
 </svg>`;
 fs.writeFileSync(path.join(iconsDir, 'icon.svg'), svg.trim());
 console.log('Generated public/icons/icon.svg');

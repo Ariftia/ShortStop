@@ -42,11 +42,11 @@ body.shortstop-active a[href*="/reel/"] {
   left: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  background-color: #0F172A !important;
+  background-color: #09090B !important;
   z-index: 2147483647 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #F8FAFC !important;
+  color: #FAFAFA !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }
