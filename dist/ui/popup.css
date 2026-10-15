@@ -130,16 +130,11 @@ body {
   letter-spacing: 0.04em;
 }
 
-.badge-success {
+.badge-success,
+.badge-focus {
   background-color: var(--status-safe-bg);
   color: var(--status-safe);
   border: 1px solid var(--status-safe-border);
-}
-
-.badge-focus {
-  background-color: var(--bg-subtle);
-  color: var(--text-primary);
-  border: 1px solid var(--border-emphasis);
 }
 
 .badge-grace {

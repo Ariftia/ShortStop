@@ -226,9 +226,8 @@ ShortStop rejects faux-3D skeuomorphism, colored halos, and heavy blurs. Depth i
 - **Focus Ring:** Explicit 2px white outline with 2px offset (`outline: 2px solid #FFFFFF; outline-offset: 2px`).
 
 ### Status Badges & Pills
-- **Protected:** Emerald green fill (`rgba(34, 197, 94, 0.12)`), green border (`rgba(34, 197, 94, 0.35)`), green text (`#22C55E`).
-- **Warning / Locked:** Signal red fill (`rgba(239, 68, 68, 0.12)`), red border (`rgba(239, 68, 68, 0.35)`), red text (`#EF4444`).
-- **Neutral / Focus:** Subtle charcoal fill (`#1C1C1F`), grey border (`#3F3F46`), crisp white text (`#FFFFFF`).
+- **Protected & Focus Session:** Emerald green fill (`rgba(34, 197, 94, 0.12)`), green border (`rgba(34, 197, 94, 0.35)`), green text (`#22C55E`). Confirms active protection is engaged.
+- **Warning / Locked:** Signal red fill (`rgba(239, 68, 68, 0.12)`), red border (`rgba(239, 68, 68, 0.35)`), red text (`#EF4444`). Reserved for anti-tamper lockouts and active grace warnings.
 
 ### Countdown Circle (Signature Component)
 - **Geometry:** 7.5rem (120px) circular container with 2px solid signal red border and generous 1rem interior padding.
