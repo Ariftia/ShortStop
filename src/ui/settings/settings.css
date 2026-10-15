@@ -46,6 +46,34 @@
   padding: 0;
 }
 
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-emphasis);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-emphasis) transparent;
+}
+
+input, textarea {
+  caret-color: var(--accent-white);
+}
+
 ::selection {
   background-color: var(--accent-white);
   color: var(--accent-white-text);
@@ -253,6 +281,10 @@ body {
   border-color: var(--border-emphasis);
 }
 
+.toggle-item:focus-within {
+  border-color: var(--border-emphasis);
+}
+
 .toggle-info {
   display: flex;
   flex-direction: column;
@@ -275,6 +307,12 @@ body {
   height: 1.25rem;
   accent-color: var(--accent-white);
   cursor: pointer;
+  border-radius: 9999px;
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--accent-white);
+  outline-offset: 2px;
 }
 
 /* Custom Domain Form */
@@ -323,13 +361,21 @@ body {
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 0 0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease;
 }
 
 .btn-remove-domain:hover {
   color: var(--status-warn);
+}
+
+.btn-remove-domain:focus-visible {
+  outline: 2px solid var(--accent-white);
+  outline-offset: 1px;
 }
 
 /* Bottom Actions */

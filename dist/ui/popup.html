@@ -101,12 +101,13 @@
     </footer>
 
     <!-- 30-Second Intentional Delay Modal -->
-    <div id="popup-delay-modal" class="modal-backdrop hidden">
+    <div id="popup-delay-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="popup-modal-title">
       <div class="modal-dialog">
-        <h3 class="modal-title">Take a Breath</h3>
+        <h3 id="popup-modal-title" class="modal-title">Take a Breath</h3>
         <p class="modal-desc">Waiting 30 seconds to ensure intentional browsing.</p>
         <div class="countdown-circle">
           <span id="popup-delay-seconds">30</span>
+          <span class="delay-unit">seconds</span>
         </div>
         <div class="modal-buttons">
           <button id="btn-cancel-popup-delay" class="btn btn-secondary btn-sm">Cancel</button>

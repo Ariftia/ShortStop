@@ -46,6 +46,34 @@
   padding: 0;
 }
 
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-emphasis);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-emphasis) transparent;
+}
+
+input, textarea {
+  caret-color: var(--accent-white);
+}
+
 ::selection {
   background-color: var(--accent-white);
   color: var(--accent-white-text);
@@ -421,19 +449,33 @@ body {
 }
 
 .countdown-circle {
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   border: 2px solid var(--status-warn);
   margin: 0 auto 1rem;
   padding: 0.5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+}
+
+#popup-delay-seconds {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--status-warn);
+  line-height: 1;
   font-variant-numeric: tabular-nums;
+}
+
+.delay-unit {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
 }
 
 .modal-buttons {

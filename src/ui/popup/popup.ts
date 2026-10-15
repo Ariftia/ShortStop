@@ -106,6 +106,16 @@ btnCancelDelay.addEventListener('click', () => {
   modal.classList.add('hidden');
 });
 
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    if (modalInterval) {
+      clearInterval(modalInterval);
+      modalInterval = null;
+    }
+    modal.classList.add('hidden');
+  }
+});
+
 btnConfirmGrace.addEventListener('click', () => {
   if (delayCount > 0) return;
   modal.classList.add('hidden');
